@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#Ex\\PlacesInBulgaria\\Models\\Models.csproj",
+      "projectUniqueName": "D:\\git\\BgPlace\\srs\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "D:\\C#Ex\\PlacesInBulgaria\\Models\\Models.csproj",
+      "projectPath": "D:\\git\\BgPlace\\srs\\Models\\Models.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "D:\\C#Ex\\PlacesInBulgaria\\Models\\obj\\",
+      "outputPath": "D:\\git\\BgPlace\\srs\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",

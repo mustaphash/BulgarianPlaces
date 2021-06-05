@@ -10,3 +10,15 @@ D:\C#Ex\PlacesInBulgaria\Models\obj\Debug\net5.0\Models.csproj.CoreCompileInputs
 D:\C#Ex\PlacesInBulgaria\Models\obj\Debug\net5.0\Models.dll
 D:\C#Ex\PlacesInBulgaria\Models\obj\Debug\net5.0\ref\Models.dll
 D:\C#Ex\PlacesInBulgaria\Models\obj\Debug\net5.0\Models.pdb
+D:\git\BgPlace\srs\Models\bin\Debug\net5.0\Models.deps.json
+D:\git\BgPlace\srs\Models\bin\Debug\net5.0\Models.dll
+D:\git\BgPlace\srs\Models\bin\Debug\net5.0\ref\Models.dll
+D:\git\BgPlace\srs\Models\bin\Debug\net5.0\Models.pdb
+D:\git\BgPlace\srs\Models\obj\Debug\net5.0\Models.csprojAssemblyReference.cache
+D:\git\BgPlace\srs\Models\obj\Debug\net5.0\Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\git\BgPlace\srs\Models\obj\Debug\net5.0\Models.AssemblyInfoInputs.cache
+D:\git\BgPlace\srs\Models\obj\Debug\net5.0\Models.AssemblyInfo.cs
+D:\git\BgPlace\srs\Models\obj\Debug\net5.0\Models.csproj.CoreCompileInputs.cache
+D:\git\BgPlace\srs\Models\obj\Debug\net5.0\Models.dll
+D:\git\BgPlace\srs\Models\obj\Debug\net5.0\ref\Models.dll
+D:\git\BgPlace\srs\Models\obj\Debug\net5.0\Models.pdb

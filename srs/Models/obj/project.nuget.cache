@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Xl8M5JDPI7VF8l2PA24eM4CBZfTf/855lEi3IZT2FqFcvvGdl6dG5EvKWGv+fBsX5casE8KM+l0XmnCue4MxQA==",
+  "dgSpecHash": "SKvSf75RnFOcwfGT35RYznB/dZUYUqhwXY2Fn96jUE5ADR5qpomol+qep9HjTKe69HCi1H8usxskpmxCN67qng==",
   "success": true,
-  "projectFilePath": "D:\\C#Ex\\PlacesInBulgaria\\Models\\Models.csproj",
+  "projectFilePath": "D:\\git\\BgPlace\\srs\\Models\\Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

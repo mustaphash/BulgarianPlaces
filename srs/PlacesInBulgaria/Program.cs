@@ -18,9 +18,24 @@ namespace PlacesInBulgaria
             
             var places = JsonConvert.DeserializeObject<List<Place>>(content);
 
+            Console.WriteLine("Search by:");
+            Console.WriteLine("1-Town");
+            Console.WriteLine("2-Category");
+            Console.WriteLine("3-Longitude and latitude");
+
+            string answer;
+            int number = int.Parse(Console.ReadLine());
+
+            if (number == 1)
+            {
+                answer = Console.ReadLine();
+            }
+
             foreach (var place in places)
             {
-                Console.WriteLine(place.Address);
+                Console.Write($"{place.Address} - ");
+                Console.Write(place.Latitude);
+                Console.WriteLine();
             }
         }
     }
