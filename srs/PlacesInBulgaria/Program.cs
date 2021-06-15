@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -36,7 +37,6 @@ namespace PlacesInBulgaria
                 Console.Write("Отговор: ");
                 int number = int.Parse(Console.ReadLine());
 
-
                 if (number == 1)
                 {
                     Console.Write("Напишете област, моля: ");
@@ -62,6 +62,24 @@ namespace PlacesInBulgaria
                 }
                 else if (number == 3)
                 {
+                    // 42.72292889087154, 23.248363872647936
+                    var latitude = 42.72292889087154; //double.Parse(Console.ReadLine());
+                    var longitude = 23.248363872647936; //double.Parse(Console.ReadLine());
+                    var coord = new GeoCoordinate(latitude, longitude);
+
+                    var nearest = places.Select(x =>
+                    new
+                    {
+                        Place = x,
+                        Location = new GeoCoordinate(x.Latitude, x.Longitude)
+                    })
+                        .OrderBy(x => x.Location.GetDistanceTo(coord))
+                        .First();
+
+                    Console.WriteLine(nearest.Place.Name);
+                    Console.WriteLine(nearest.Place.Description);
+                    Console.WriteLine(nearest.Place.Address);
+
 
                 }
                 else if (number == 4)

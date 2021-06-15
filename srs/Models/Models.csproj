@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.BigQuery.V2" Version="2.2.0" />
+  </ItemGroup>
+
 </Project>
