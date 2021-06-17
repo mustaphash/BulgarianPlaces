@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\External.Place\External.Places.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 

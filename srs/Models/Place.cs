@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using System;
+
+namespace Models.Place
 {
     public class Place
     {
@@ -16,6 +18,10 @@
 
         public string Category { get; set; }
 
+        public object Where(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
     }
  
 }

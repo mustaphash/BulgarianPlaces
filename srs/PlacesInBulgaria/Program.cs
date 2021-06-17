@@ -1,27 +1,16 @@
-﻿using Models;
-using Newtonsoft.Json;
+﻿using External.Places.Queries;
+using External.Places.Queries.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Device.Location;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace PlacesInBulgaria
 {
     class Program
     {
-
         static async Task Main(string[] args)
         {
-
-            HttpClient httpClient = new HttpClient();
-            HttpResponseMessage response = await httpClient.GetAsync($"http://62.171.141.18/?fbclid=IwAR3YE74zv_w-pN6hJNNq5_oljKj3821fsXgupggehcRF2gZ9SmQX72L3sME");
-            string content = await response.Content.ReadAsStringAsync();
-
-
-            var places = JsonConvert.DeserializeObject<List<Place>>(content);
-
 
             Console.WriteLine("Търсене по:");
             Console.WriteLine("1-Област");
@@ -30,7 +19,13 @@ namespace PlacesInBulgaria
             Console.WriteLine("4-Име");
 
             string answer;
+            IGetTownQuery townName = new GetTownQuery();
+            var town = await townName.ExecuteAsync();
 
+            foreach (var t in town)
+            {
+                Console.WriteLine(t.Name);
+            }
 
             while (true)
             {
@@ -41,7 +36,7 @@ namespace PlacesInBulgaria
                 {
                     Console.Write("Напишете област, моля: ");
                     answer = Console.ReadLine();
-                    var filtredPlaces = places.Where(p => p.Address.Contains(answer));
+                    var filtredPlaces =await town.Where(p => p.Address.Contains(answer));
 
                     foreach (var place in filtredPlaces)
                     {
