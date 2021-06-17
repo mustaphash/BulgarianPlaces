@@ -1,7 +1,6 @@
 ﻿using External.Places.Queries.Interfaces;
 using Models.Place;
 using Newtonsoft.Json;
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 

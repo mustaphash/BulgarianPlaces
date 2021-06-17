@@ -1,20 +1,22 @@
 ﻿using External.Places.Queries.Interfaces;
+using Models.Place;
+using Newtonsoft.Json;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace External.Places.Queries
 {
-    class GetLongAndLatQuery
+    public class GetLongAndLatQuery:IGetLngAndLatQuery
     {
-        public class GetTownQuery : IGetLngAndLatQuery
-        {
+        
             private readonly Context _httpClientContext;
 
-            public GetTownQuery()
+            public GetLongAndLatQuery()
                 : this(new Context())
             {
             }
 
-            public GetTownQuery(Context httpClientContext)
+            public GetLongAndLatQuery(Context httpClientContext)
             {
                 _httpClientContext = httpClientContext;
             }
@@ -30,6 +32,6 @@ namespace External.Places.Queries
                 return places;
             }
 
-        }
+        
     }
 }
