@@ -39,7 +39,7 @@ namespace PlacesInBulgaria
             }
             return 0;
         }
-        static async Task<int> ParseLongAndLAt(LongAndLatVerb longitude, LongAndLatVerb latitude)
+        static async Task<int> ParseLongAndLat(LongAndLatVerb longitude, LongAndLatVerb latitude)
         {
             IGetLngAndLatQuery townLongAndLat = new GetLongAndLatQuery();
             var longAndLat = await townLongAndLat.ExecuteAsync(longitude.Longitude, latitude.Latitude);
@@ -80,6 +80,7 @@ namespace PlacesInBulgaria
                   (AreaVerb opts) => ParseArea(opts).GetAwaiter().GetResult(),
                   (CategoryVerb opts) => ParseCategory(opts).GetAwaiter().GetResult(),
                   (NameVerb opts) => ParseName(opts).GetAwaiter().GetResult(),
+                  (LongAndLatVerb opts) => ParseLongAndLat(opts,opts).GetAwaiter().GetResult(),
                   (IEnumerable<Error> errs) => ExceptionHandling(errs).GetAwaiter().GetResult());
 
             //Console.WriteLine("Търсене по:");
@@ -88,44 +89,6 @@ namespace PlacesInBulgaria
             //Console.WriteLine("3-Географска дължина и широчина");
             //Console.WriteLine("4-Име");
 
-            //while (true)
-            //{
-
-            //    }
-
-            //    }
-            //    else if (number == 3)
-            //    {
-            //        //42.51495588296913, 27.450042893768337
-            //        Console.Write("Географска дължина: ");
-            //        double answerLongi = double.Parse(Console.ReadLine());
-            //        Console.Write("Географска ширина: ");
-            //        double answerLat = double.Parse(Console.ReadLine());
-            //        IGetLngAndLatQuery townLongAndLat = new GetLongAndLatQuery();
-            //        var longAndLat = await townLongAndLat.ExecuteAsync(answerLongi, answerLat);
-
-            //        foreach (var longiLat in longAndLat)
-            //        {
-            //            Console.WriteLine(longiLat.Name);
-            //            Console.WriteLine(longiLat.Description);
-            //            Console.WriteLine(longiLat.Category);
-            //        }
-
-            //    }
-            //    else if (number == 4)
-            //    {
-            //        Console.WriteLine("Моле напишете името на местността: ");
-            //        string answer = Console.ReadLine();
-            //        IGetNameQuery townNames = new GetNameQuery();
-            //        var names = await townNames.ExecuteAsync(answer);
-
-            //        foreach (var name in names)
-            //        {
-            //            Console.WriteLine(name.Address);
-            //            Console.WriteLine(name.Description);
-            //        }
-            //    }
-            //}
         }
     }
 }
