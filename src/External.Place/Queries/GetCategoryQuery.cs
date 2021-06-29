@@ -29,7 +29,7 @@ namespace External.Places.Queries
             string content = await response.Content.ReadAsStringAsync();
 
             var places = JsonConvert.DeserializeObject<List<Place>>(content);
-            List<Place> categoryName = places.Where(p => p.Category.Contains(category)).ToList();
+            List<Place> categoryName = places.Where(p => p.Category.ToUpper().Contains(category.ToUpper())).ToList();
 
             return categoryName;
         }

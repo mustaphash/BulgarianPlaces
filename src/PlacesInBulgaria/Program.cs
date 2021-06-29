@@ -54,12 +54,29 @@ namespace PlacesInBulgaria
             IGetLngAndLatQuery townLongAndLat = new GetLongAndLatQuery();
             var longAndLat = await townLongAndLat.ExecuteAsync(longitude.Longitude, latitude.Latitude);
 
+            DataTable longLatTable = new DataTable($"Забележителности за географска дължина и широчина {longAndLat}");
+
+            longLatTable.Columns.Add("Номер");
+            longLatTable.Columns.Add("Име");
+            longLatTable.Columns.Add("Описание");
+            longLatTable.Columns.Add("Категория");
+
+            int i = 1;
             foreach (var longiLat in longAndLat)
             {
-                Console.WriteLine(longiLat.Name);
-                Console.WriteLine(longiLat.Description);
-                Console.WriteLine(longiLat.Category);
+                longLatTable.Rows.Add(
+                    i,
+                    longiLat.Name,
+                    longiLat.Description,
+                    longiLat.Category);
+
+                i++;
             }
+
+            ConsoleTableBuilder
+                .From(longLatTable)
+                .WithFormat(ConsoleTableBuilderFormat.Alternative)
+                .ExportAndWriteLine();
 
             return 0;
         }
@@ -69,11 +86,26 @@ namespace PlacesInBulgaria
             IGetNameQuery townNames = new GetNameQuery();
             var names = await townNames.ExecuteAsync(nameA.Name);
 
+            DataTable NameTable = new DataTable($"Забележителности за име {names}");
+
+            NameTable.Columns.Add("Номер");
+            NameTable.Columns.Add("Адрес");
+            NameTable.Columns.Add("Описание");
+
+            int i = 1;
             foreach (var name in names)
             {
-                Console.WriteLine(name.Address);
-                Console.WriteLine(name.Description);
+                NameTable.Rows.Add(
+                    i,
+                    name.Address,
+                    name.Description);
+
+                i++;
             }
+            ConsoleTableBuilder
+                .From(NameTable)
+                .WithFormat(ConsoleTableBuilderFormat.Alternative)
+                .ExportAndWriteLine();
 
             return 0;
         }
@@ -86,7 +118,7 @@ namespace PlacesInBulgaria
 
         static void Main(string[] args)
         {
-            Parser.Default.ParseArguments<AreaVerb, CategoryVerb>(args)
+            Parser.Default.ParseArguments<AreaVerb, CategoryVerb, NameVerb,LongAndLatVerb>(args)
                 .MapResult(
                   (AreaVerb opts) => new AreaParser().Parse(opts).GetAwaiter().GetResult(),
                   (CategoryVerb opts) => ParseCategory(opts).GetAwaiter().GetResult(),

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PlacesInBulgaria": {
+      "commandName": "Project",
+      "commandLineArgs": "category --name \"история и култура\""
+    }
+  }
+}

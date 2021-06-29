@@ -30,7 +30,7 @@ namespace External.Places.Queries
             string content = await response.Content.ReadAsStringAsync();
 
             var places = JsonConvert.DeserializeObject<List<Place>>(content);
-            List<Place> name = places.Where(p => p.Name.Contains(nameOfTown)).ToList();
+            List<Place> name = places.Where(p => p.Name.ToUpper().Contains(nameOfTown.ToUpper())).ToList();
 
             return name;
         }
