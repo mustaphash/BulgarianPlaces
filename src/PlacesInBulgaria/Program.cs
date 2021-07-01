@@ -47,34 +47,7 @@ namespace PlacesInBulgaria
             return 0;
         }
 
-        static async Task<int> ParseName(NameVerb nameA)
-        {
-            IGetNameQuery townNames = new GetNameQuery();
-            var names = await townNames.ExecuteAsync(nameA.Name);
-
-            DataTable NameTable = new DataTable($"Забележителности за име {names}");
-
-            NameTable.Columns.Add("Номер");
-            NameTable.Columns.Add("Адрес");
-            NameTable.Columns.Add("Описание");
-
-            int i = 1;
-            foreach (var name in names)
-            {
-                NameTable.Rows.Add(
-                    i,
-                    name.Address,
-                    name.Description);
-
-                i++;
-            }
-            ConsoleTableBuilder
-                .From(NameTable)
-                .WithFormat(ConsoleTableBuilderFormat.Alternative)
-                .ExportAndWriteLine();
-
-            return 0;
-        }
+        
 
         static Task<int> ExceptionHandling(IEnumerable<Error> errors)
         {
@@ -88,7 +61,7 @@ namespace PlacesInBulgaria
                 .MapResult(
                   (AreaVerb opts) => new AreaParser().Parse(opts).GetAwaiter().GetResult(),
                   (CategoryVerb opts) => new CategoryParser().ParseCategory(opts).GetAwaiter().GetResult(),
-                  (NameVerb opts) => ParseName(opts).GetAwaiter().GetResult(),
+                  (NameVerb opts) => new NameParser().ParseName(opts).GetAwaiter().GetResult(),
                   (LongAndLatVerb opts) => ParseLongAndLat(opts, opts).GetAwaiter().GetResult(),
                   (IEnumerable<Error> errs) => ExceptionHandling(errs).GetAwaiter().GetResult());
         }
