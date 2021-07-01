@@ -14,7 +14,7 @@ namespace PlacesInBulgaria.Verbs.Parsers
             IGetTownQuery townName = new GetTownQuery();
             var townLandmarks = await townName.ExecuteAsync(verb.Name);
 
-            DataTable areaTable = new DataTable($"Забележителности за категория {townLandmarks}");
+            DataTable areaTable = new DataTable($"Забележителности за местоположение {townLandmarks}");
 
             areaTable.Columns.Add("Номер");
             areaTable.Columns.Add("Име");
