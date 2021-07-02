@@ -1,7 +1,6 @@
 ﻿using ConsoleTableExt;
 using External.Places.Queries;
 using External.Places.Queries.Interfaces;
-using System;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -21,6 +20,7 @@ namespace PlacesInBulgaria.Verbs.Parsers
             areaTable.Columns.Add("Географска дължина");
             areaTable.Columns.Add("Географска широчина");
             areaTable.Columns.Add("Категория");
+            
 
             int i = 1;
             foreach (var townLandmark in townLandmarks)

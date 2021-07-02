@@ -2,12 +2,13 @@
 
 namespace PlacesInBulgaria.Verbs
 {
-    [Verb("longitude and latitude", HelpText = "Филтриране по географска дълцина и широчина.")]
+    [Verb("longiAndLati", HelpText = "Филтриране по географска дълцина и широчина.")]
     public class LongAndLatVerb
     {
-        [Option('l', "longitude latitude", Required = true, HelpText = "Географска дълцина и широчина.")]
-
+        [Option('l', "longitude", Required = true, HelpText = "Географска дължина.")]
         public double Longitude { get; set; }
+
+        [Option('l', "latitude", Required = true, HelpText = "Географска широчина.")]
         public double Latitude { get; set; }
     }
 }
